@@ -37,8 +37,9 @@ public class PlaceServiceImplTest {
         placeRepository.deleteAll();
         for (int i = 1; i <= 20; i++) {
             Place p = new Place();
-            p.setDescription("description"+(i % 100) + 1);
-            p.setName("name" + i);
+            p.setObjectName("object_name"+(i % 100) + 1);
+            p.setPlaceDescription("place_description"+(i % 100) + 1);
+            p.setPlaceName("place_name" + i);
             placeRepository.save(p);
         }
         placeRepository.flush();
@@ -78,7 +79,7 @@ public class PlaceServiceImplTest {
 
     @Test
     public void testFindByNameLike() throws Exception {
-        Page<Place> p = placeService.findByNameLike("name1", 0, 5);
+        Page<Place> p = placeService.findByObjectNameLike("name1", 0, 5);
         System.out.println(p.getContent());
         assertNotNull(p);
         assertEquals(5, p.getNumberOfElements());
@@ -94,8 +95,8 @@ public class PlaceServiceImplTest {
         Integer id = lastOne.getId();
         Place p = placeService.findById(id);
         assertEquals(id, p.getId());
-        assertEquals(lastOne.getName(), p.getName());
-        assertEquals(lastOne.getDescription(), p.getDescription());
+        assertEquals(lastOne.getObjectName(), p.getObjectName());
+        assertEquals(lastOne.getPlaceDescription(), p.getPlaceDescription());
     }
 
     @Test
@@ -103,8 +104,9 @@ public class PlaceServiceImplTest {
         Place lastOne = placeService.findAll(0, 1).getContent().get(0);
 
         Place p = new Place();
-        p.setDescription("description"+20);
-        p.setName("noname");
+        p.setObjectName("object_name_insert");
+        p.setPlaceName("place_name_insert");
+        p.setPlaceDescription("description"+20);
 
         Place result = placeService.insert(p);
         placeRepository.flush();
@@ -116,15 +118,16 @@ public class PlaceServiceImplTest {
         Place lastOne = placeService.findAll(0, 1).getContent().get(0);
         {
             Place p = placeService.findById(lastOne.getId());
-            p.setDescription("description"+30);
-            p.setName("hoge");
+            p.setPlaceDescription("description"+30);
+            p.setObjectName("object_name_update");
+            p.setPlaceName("place_name_update");
             placeService.update(p);
         }
         placeRepository.flush();
         {
             Place p = placeService.findById(lastOne.getId());
-            assertEquals("description"+30, p.getDescription());
-            assertEquals("hoge", p.getName());
+            assertEquals("description"+30, p.getPlaceDescription());
+            assertEquals("object_name_update", p.getObjectName());
         }
     }
 

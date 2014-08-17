@@ -28,8 +28,9 @@ public class PlaceRepositoryTest {
         placeRepository.deleteAll();
         for (int i = 1; i <= 20; i++) {
             Place p = new Place();
-            p.setDescription("description"+(i % 100) + 1);
-            p.setName("name" + i);
+            p.setObjectName("object_name"+(i % 100) + 1);
+            p.setPlaceDescription("place_description"+(i % 100) + 1);
+            p.setPlaceName("place_name" + i);
             placeRepository.save(p);
         }
         placeRepository.flush();
@@ -42,7 +43,7 @@ public class PlaceRepositoryTest {
 
     @Test
     public void testFindByName() {
-        Page<Place> p = placeRepository.findByNameLike("%name1%", new PageRequest(
+        Page<Place> p = placeRepository.findByObjectNameLike("%name1%", new PageRequest(
                 0, 5));
         System.out.println(p.getContent());
         assertNotNull(p);

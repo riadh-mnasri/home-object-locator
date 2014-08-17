@@ -16,19 +16,24 @@ public class Place implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "PLACE_ID")
+    @Column(name = "OBJECT_ID")
     @GeneratedValue
     private Integer id;
 
+    @Column(name = "OBJECT_NAME")
+    @Size(min = 1, max = 30)
+    @NotNull
+    private String objectName;
+    
     @Column(name = "PLACE_NAME")
     @Size(min = 1, max = 30)
     @NotNull
-    private String name;
+    private String placeName;
 
     @Column(name = "PLACE_DESCRIPTION")
     @Size(min = 1, max = 200)
     @NotNull
-    private String description;
+    private String placeDescription;
 
     public Integer getId() {
         return id;
@@ -38,24 +43,32 @@ public class Place implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
-    }
+    public String getObjectName() {
+		return objectName;
+	}
 
-    public void setName(String name) {
-        this.name = name;
-    }
+	public void setObjectName(String objectName) {
+		this.objectName = objectName;
+	}
 
-    public String getDescription() {
-        return description;
-    }
+	public String getPlaceName() {
+		return placeName;
+	}
 
-    public void setDescription(String description) {
-        this.description = description;
-    }
+	public void setPlaceName(String placeName) {
+		this.placeName = placeName;
+	}
 
-    @Override
+	public String getPlaceDescription() {
+		return placeDescription;
+	}
+
+	public void setPlaceDescription(String placeDescription) {
+		this.placeDescription = placeDescription;
+	}
+
+	@Override
     public String toString() {
-        return "Place [id=" + id + ", name=" + name + ", description=" + description + "]";
+        return "Place [object_id=" + id + ", objet_name=" + objectName + ", place_name=" + placeName + ", place_description=" + placeDescription + "]";
     }
 }

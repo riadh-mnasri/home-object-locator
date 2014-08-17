@@ -11,23 +11,33 @@
         <form:form method="post" action="." modelAttribute="place"
             cssClass="form-horizontal">
             <fieldset>
-                <legend>Place</legend>
+                <legend>Add an object at home :</legend>
                 <div class="control-group">
-                    <label class="control-label" for="name">name</label>
+                    <label class="control-label" for="objectName">Object name</label>
                     <div class="controls">
-                        <form:input path="name" cssClass="span5"
+                        <form:input path="objectName" cssClass="span5"
                             cssErrorClass="error" />
-                        <form:errors path="name"
+                        <form:errors path="objectName"
                             cssClass="error help-inline inline"
                             element="span" />
                     </div>
                 </div>
                 <div class="control-group">
-                    <label class="control-label" for="description">description</label>
+                    <label class="control-label" for="placeName">Place name</label>
                     <div class="controls">
-                        <form:input path="description" cssClass="span3"
+                        <form:input path="placeName" cssClass="span5"
                             cssErrorClass="error" />
-                        <form:errors path="description"
+                        <form:errors path="placeName"
+                            cssClass="error help-inline inline"
+                            element="span" />
+                    </div>
+                </div>
+                <div class="control-group">
+                    <label class="control-label" for="placeDescription">Place description</label>
+                    <div class="controls">
+                        <form:input path="placeDescription" cssClass="span3"
+                            cssErrorClass="error" />
+                        <form:errors path="placeDescription"
                             cssClass="error help-inline inline"
                             element="span" />
                     </div>

@@ -8,15 +8,17 @@
             class="table table-striped table-bordered table-condensed">
             <tr>
                 <th>ID</th>
-                <th>NAME</th>
-                <th>EMPLACEMENT</th>
+                <th>OBJECT NAME</th>
+                <th>PLACE NAME</th>
+                <th>PLACE DESCRIPTION</th>
                 <th>&nbsp;</th>
             </tr>
             <c:forEach items="${page.content}" var="place">
                 <tr>
                     <td>${f:h(place.id)}</td>
-                    <td>${f:h(place.name)}</td>
-                    <td>${f:h(place.description)}</td>
+                    <td>${f:h(place.objectName)}</td>
+                     <td>${f:h(place.placeName)}</td>
+                    <td>${f:h(place.placeDescription)}</td>
                     <td><a href='${pageContext.request.contextPath}/place/edit/${place.id}'
                         class="btn btn-primary">edit</a>
                         <a href='${pageContext.request.contextPath}/place/delete/${place.id}'

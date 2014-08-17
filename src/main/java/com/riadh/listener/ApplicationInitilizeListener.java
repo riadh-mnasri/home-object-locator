@@ -20,7 +20,7 @@ public class ApplicationInitilizeListener implements ServletContextListener {
 
     @Override
     public void contextInitialized(ServletContextEvent sce) {
-        LOGGER.debug("initializing..");
+        /* LOGGER.debug("initializing..");
         WebApplicationContext ctx = WebApplicationContextUtils
                 .getWebApplicationContext(sce.getServletContext());
         PlaceRepository placeRepository = ctx.getBean(PlaceRepository.class);
@@ -39,7 +39,7 @@ public class ApplicationInitilizeListener implements ServletContextListener {
                 places.clear();
             }
         }
-        placeRepository.save(places);
+        placeRepository.save(places);*/
     }
 
     @Override

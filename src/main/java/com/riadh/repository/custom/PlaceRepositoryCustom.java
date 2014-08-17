@@ -6,5 +6,5 @@ import org.springframework.data.domain.Pageable;
 import com.riadh.entity.Place;
 
 public interface PlaceRepositoryCustom {
-    Page<Place> findByNameLike(String name, Pageable pageable);
+    Page<Place> findByObjectNameLike(String name, Pageable pageable);
 }

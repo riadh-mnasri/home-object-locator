@@ -32,18 +32,18 @@ public class PlaceServiceImpl implements PlaceService {
 
     @Override
     @Transactional(readOnly = true)
-    public Page<Place> findByNameLike(String name, int page, int size) {
+    public Page<Place> findByObjectNameLike(String name, int page, int size) {
         Pageable pageable = new PageRequest(page, size, new Sort(
                 Direction.DESC, "id"));
         String q = "%" + name + "%";
-        Page<Place> places = placeRepository.findByNameLike(q, pageable);
+        Page<Place> places = placeRepository.findByObjectNameLike(q, pageable);
         return places;
     }
     
     @Override
     @Transactional(readOnly = true)
-    public List<Place> findByName(String name) {
-    	List<Place> places = placeRepository.findByName(name);
+    public List<Place> findByObjectName(String name) {
+    	List<Place> places = placeRepository.findByObjectName(name);
         return places;
     }
 

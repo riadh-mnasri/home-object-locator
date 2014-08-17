@@ -9,9 +9,9 @@ import com.riadh.entity.Place;
 public interface PlaceService {
     Page<Place> findAll(int page, int size);
 
-    Page<Place> findByNameLike(String name, int page, int size);
+    Page<Place> findByObjectNameLike(String name, int page, int size);
     
-    List<Place> findByName(String name);
+    List<Place> findByObjectName(String name);
 
     Place findById(Integer id);
 
